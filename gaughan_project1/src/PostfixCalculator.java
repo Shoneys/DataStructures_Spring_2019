@@ -36,7 +36,7 @@ public class PostfixCalculator {
                         s.push(n1 + n2);
                         break;
                     case "-":
-                        s.push(n1 - n2);
+                        s.push(n2 - n1);
                         break;
                     case "x":
                         s.push(n1 * n2);

@@ -13,6 +13,7 @@ public class Queue<T> {
 
     T dequeue() {
         // removes first element
+        //how is this O(n)? is it the get() or the remove?
         size--;
         T removeditem = q.get(0);
         q.remove(0);
