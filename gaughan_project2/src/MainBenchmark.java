@@ -2,12 +2,8 @@ import java.util.Scanner;
 
 
 public class MainBenchmark<T> {
+    private static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-
-
-        System.out.print("Enter your number of objects: ");
-        int n = sc.nextInt();
 
         BenchmarkTests benchmarkArrayList = new BenchmarkTests();
 
@@ -24,14 +20,18 @@ public class MainBenchmark<T> {
                 typeofSet = new SetBST<>();
                 break;
             case 3:
-                typeofSet = new SetBST<>();
+                typeofSet = new SetAVL<>();
                 break;
             default:
-                typeofSet = new SetBST<>();
                 System.out.println("Please enter a valid selection");
                 main(args);
+                typeofSet = null;
+                System.exit(0);
                 break;
         }
+
+        System.out.print("Enter your number of objects: ");
+        int n = sc.nextInt();
 
         System.out.println("How many searches for contains?:");
         int numSearches = sc.nextInt();
@@ -67,25 +67,25 @@ public class MainBenchmark<T> {
             startTime = System.nanoTime();
             benchmarkArrayList.containsRandom(typeofSet, n, numSearches);
             endTime = System.nanoTime();
-            System.out.println("Total execution time for containsInOrder: " + (endTime - startTime) + "ns");
-            avetimeforcontainsRandom = endTime - startTime;
+            System.out.println("Total execution time for containsRandom: " + (endTime - startTime) + "ns");
+            avetimeforcontainsRandom += endTime - startTime;
         }
         avetimeforcontainsRandom = avetimeforcontainsRandom / numTests;
 
-        long avetimeforcontainscontainsInOrder = 0;
+        long avetimeforcontainsInOrder = 0;
         for (int i = 0; i < numTests; i++) {
             startTime = System.nanoTime();
             benchmarkArrayList.containsInOrder(typeofSet, n, numSearches);
             endTime = System.nanoTime();
             System.out.println("Total execution time for containsInOrder: " + (endTime - startTime) + "ns");
-            avetimeforcontainscontainsInOrder = endTime - startTime;
+            avetimeforcontainsInOrder += endTime - startTime;
         }
-        avetimeforcontainscontainsInOrder = avetimeforcontainscontainsInOrder / numTests;
+        avetimeforcontainsInOrder = avetimeforcontainsInOrder / numTests;
 
         System.out.println("\nAverage time for insertRandoms: " + avetimeforInsertRand);
         System.out.println("Average time for insertInOrder: " + avetimeforInsertInOrder);
-        System.out.println("Average time for containsInOrder: " + avetimeforcontainsRandom);
-        System.out.println("Average time for insertInOrder: " + avetimeforcontainscontainsInOrder);
+        System.out.println("Average time for containsRandom: " + avetimeforcontainsRandom);
+        System.out.println("Average time for containsInOrder: " + avetimeforcontainsInOrder);
     }
 }
 

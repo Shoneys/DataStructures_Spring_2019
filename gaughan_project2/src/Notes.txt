@@ -16,7 +16,7 @@ Positives of ArrayList:
     access O(1)
     insert or remove O(N)
 
-On my system with a cache drive, the first test executed is
+The first test executed is always the slowest
 
 
 
