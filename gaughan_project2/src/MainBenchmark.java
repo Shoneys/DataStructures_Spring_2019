@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 public class MainBenchmark<T> {
     private static Scanner sc = new Scanner(System.in);
+
     public static void main(String[] args) {
 
         BenchmarkTests benchmarkArrayList = new BenchmarkTests();
@@ -17,10 +18,10 @@ public class MainBenchmark<T> {
                 typeofSet = new SetArrayList<>();
                 break;
             case 2:
-                typeofSet = new SetBST<>();
+                typeofSet = new SetAVL<>();
                 break;
             case 3:
-                typeofSet = new SetAVL<>();
+                typeofSet = new SetBST<>();
                 break;
             default:
                 System.out.println("Please enter a valid selection");
@@ -33,21 +34,23 @@ public class MainBenchmark<T> {
         System.out.print("Enter your number of objects: ");
         int n = sc.nextInt();
 
-        System.out.println("How many searches for contains?:");
+        System.out.print("How many searches for contains?:");
         int numSearches = sc.nextInt();
 
-        System.out.println("How many tests for each?:");
+        System.out.print("How many tests for each?:");
         int numTests = sc.nextInt();
 
         long startTime, endTime;
         System.out.println("Type of Set & memory location: " + typeofSet);
 
+
+        //first test is always the longest, as operations are loaded in to cache?
         long avetimeforInsertRand = 0;
         for (int i = 0; i < numTests; i++) {
             startTime = System.nanoTime();
             benchmarkArrayList.insertRandoms(typeofSet, n);
             endTime = System.nanoTime();
-            System.out.println("Total execution time for insertRandoms: " + (endTime - startTime) + "ns");
+            System.out.println("Total execution time for insertRandoms[" + i + "]: " + (endTime - startTime) + "ns");
             avetimeforInsertRand += endTime - startTime;
         }
         avetimeforInsertRand = avetimeforInsertRand / numTests;
@@ -57,7 +60,7 @@ public class MainBenchmark<T> {
             startTime = System.nanoTime();
             benchmarkArrayList.insertInOrder(typeofSet, n);
             endTime = System.nanoTime();
-            System.out.println("Total execution time for insertInOrder: " + (endTime - startTime) + "ns");
+            System.out.println("Total execution time for insertInOrder[" + i + "]: " + (endTime - startTime) + "ns");
             avetimeforInsertInOrder += endTime - startTime;
         }
         avetimeforInsertInOrder = avetimeforInsertInOrder / numTests;
@@ -67,7 +70,7 @@ public class MainBenchmark<T> {
             startTime = System.nanoTime();
             benchmarkArrayList.containsRandom(typeofSet, n, numSearches);
             endTime = System.nanoTime();
-            System.out.println("Total execution time for containsRandom: " + (endTime - startTime) + "ns");
+            System.out.println("Total execution time for containsRandom[" + i + "]: " + (endTime - startTime) + "ns");
             avetimeforcontainsRandom += endTime - startTime;
         }
         avetimeforcontainsRandom = avetimeforcontainsRandom / numTests;
@@ -77,15 +80,15 @@ public class MainBenchmark<T> {
             startTime = System.nanoTime();
             benchmarkArrayList.containsInOrder(typeofSet, n, numSearches);
             endTime = System.nanoTime();
-            System.out.println("Total execution time for containsInOrder: " + (endTime - startTime) + "ns");
+            System.out.println("Total execution time for containsInOrder[" + i + "]: " + (endTime - startTime) + "ns");
             avetimeforcontainsInOrder += endTime - startTime;
         }
         avetimeforcontainsInOrder = avetimeforcontainsInOrder / numTests;
 
-        System.out.println("\nAverage time for insertRandoms: " + avetimeforInsertRand);
-        System.out.println("Average time for insertInOrder: " + avetimeforInsertInOrder);
-        System.out.println("Average time for containsRandom: " + avetimeforcontainsRandom);
-        System.out.println("Average time for containsInOrder: " + avetimeforcontainsInOrder);
+        System.out.println("\nAverage time for insertRandoms: " + avetimeforInsertRand + "ns");
+        System.out.println("Average time for insertInOrder: " + avetimeforInsertInOrder + "ns");
+        System.out.println("Average time for containsRandom: " + avetimeforcontainsRandom + "ns");
+        System.out.println("Average time for containsInOrder: " + avetimeforcontainsInOrder + "ns");
     }
 }
 
