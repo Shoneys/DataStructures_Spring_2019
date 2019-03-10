@@ -3,6 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="8a9d73f5-5b1e-42be-94c7-2922cff850f0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gaughan_project2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../gaughan_project2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gaughan_project2/src/BenchmarkTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/../gaughan_project2/src/BenchmarkTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gaughan_project2/src/MainBenchmark.java" beforeDir="false" afterPath="$PROJECT_DIR$/../gaughan_project2/src/MainBenchmark.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gaughan_project2/src/SetAVL.java" beforeDir="false" afterPath="$PROJECT_DIR$/../gaughan_project2/src/SetAVL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gaughan_project2/src/SetArrayList.java" beforeDir="false" afterPath="$PROJECT_DIR$/../gaughan_project2/src/SetArrayList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gaughan_project2/src/SetBST.java" beforeDir="false" afterPath="$PROJECT_DIR$/../gaughan_project2/src/SetBST.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gaughan_project2/src/Setable.java" beforeDir="false" afterPath="$PROJECT_DIR$/../gaughan_project2/src/Set.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,11 +38,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/PostfixCalculator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="25" column="8" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="36" />
+            <state relative-caret-position="204">
+              <caret line="14" column="59" selection-start-line="14" selection-start-column="59" selection-end-line="14" selection-end-column="59" />
             </state>
           </provider>
         </entry>
@@ -49,10 +56,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GeneralBaseCounting.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
+            <state relative-caret-position="102">
               <caret line="8" column="46" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -105,10 +112,10 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="2976" />
-    <option name="width" value="2583" />
-    <option name="height" value="1463" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="1272" />
+    <option name="width" value="1297" />
+    <option name="height" value="1398" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -177,14 +184,17 @@
       <workItem from="1551756354169" duration="174000" />
       <workItem from="1551996710893" duration="1595000" />
       <workItem from="1552016387494" duration="598000" />
+      <workItem from="1552021183955" duration="1304000" />
+      <workItem from="1552112395306" duration="103000" />
+      <workItem from="1552155751022" duration="588000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21505000" />
+    <option name="totallyTimeSpent" value="23500000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="2381" y="0" width="2066" height="1170" extended-state="0" />
+    <frame x="-7" y="-7" width="2062" height="1126" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.24920467" />
@@ -196,7 +206,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32914573" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.24855492" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.24849094" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3985056" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -246,17 +256,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PostfixCalculator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="25" column="8" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/postfix_test.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" selection-start-line="7" selection-end-line="8" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GeneralBaseCounting.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="8" column="46" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -267,13 +280,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GeneralBaseCounting.java">
+    <entry file="file://$PROJECT_DIR$/src/PostfixCalculator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="46" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="204">
+          <caret line="14" column="59" selection-start-line="14" selection-start-column="59" selection-end-line="14" selection-end-column="59" />
         </state>
       </provider>
     </entry>

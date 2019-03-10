@@ -1,0 +1,20 @@
+Positives of AVL, vs BST:
+    Same in average case
+    Better in worst case
+Negatives of AVL, vs BST:
+    More complicated than BST
+    Requires more memory if it does not balance, slowing operations
+    Insertion/Deletion more complex
+
+Positives of BST, vs AVL:
+    Simpler than AVL
+    easy to search
+
+Positives of ArrayList:
+    simple
+    sequential
+    access O(1)
+    insert or remove O(N)
+
+
+

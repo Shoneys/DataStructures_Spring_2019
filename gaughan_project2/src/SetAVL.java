@@ -1,8 +1,15 @@
-public class SetAVL<T> implements Setable<T> {
+import java.util.concurrent.ConcurrentHashMap;
+
+public class SetAVL<T extends Comparable<? super T>> implements Set<T> {
+    private BST<T> b = new BST<>();
+    private ConcurrentHashMap<T, T> checktable = new ConcurrentHashMap<>();
+
     public boolean contains(T item) {
-        return false;
+        T checknumber = checktable.get(item);
+        return checknumber != null;
     }
 
     public void insert(T item) {
+        if (!contains(item)) b.insert(item);
     }
 }

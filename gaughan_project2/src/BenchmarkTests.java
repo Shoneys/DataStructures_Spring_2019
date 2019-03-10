@@ -1,27 +1,34 @@
-import java.util.ArrayList;
-import java.util.Set;
-
-public class BenchmarkTests<T> {
-
-    T insertRandoms(Set<Integer> set, int n) {
-
-        SetArrayList insertrandoms = new SetArrayList();
+class BenchmarkTests {
+    void insertRandoms(Set<Integer> set1, int n) {
         for (int i = 0; i < n; i++) {
-            double r = (Math.random() * 10000);
-            insertrandoms.insert(r);
+            int r = (int) (Math.random() * 10000);
+            set1.insert(r);
         }
-        return insertrandoms.toList();
     }
 
-    T insertInOrder(Set<Integer> set, int n) {
+    void insertInOrder(Set<Integer> set2, int n) {
+        for (int i = 0; i < n - 1; i++) set2.insert(i);
 
     }
 
-    void containsRandom(Set<Integer> set, int size, int n, int numSearches) {
+    void containsRandom(Set<Integer> set, int size, int numSearches) {
+        for (int i = 0; i < size; i++) {
+            int r = (int) (Math.random() * 10000);
+            set.insert(r);
+        }
+        randomsetSearch(set, numSearches);
     }
 
-    void containsInOrder(Set<Integer> set, int size, int n, int numSearches) {
+    void containsInOrder(Set<Integer> set, int size, int numSearches) {
+        for (int i = 0; i < size - 1; i++) set.insert(i);
+        randomsetSearch(set, numSearches);
     }
 
 
+    private void randomsetSearch(Set<Integer> set, int numSearches) {
+        for (int i = 0; i < numSearches - 1; i++) {
+            int r = (int) (Math.random() * 10000);
+            if (set.contains(r)) System.out.println("The set contains " + r);
+        }
+    }
 }
