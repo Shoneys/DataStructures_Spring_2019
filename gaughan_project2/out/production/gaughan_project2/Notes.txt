@@ -9,19 +9,22 @@ Negatives of AVL, vs BST:
 
 Positives of BST, vs AVL:
     Simpler than AVL
-    easy to search
+    easy to search (contains is faster)
 
 Positives of ArrayList:
     simple
     sequential access
     access O(1)
     insert or remove O(N)
+    Class included in JDK
+
 
 
 The first test executed is always the slowest
 
 Tests on i5-8600k @ 4.8ghz, cpu cache @ 4.5ghz, 40 degree C;
     16gb memory 3200mhz 14-18-18-36, 32gb Optane memory cache (pinned intellij and java jdk), JVM Heap 1500Mb:
+
     1000 Integers, 1000 contains, 25000 tests each:
         AL:
             1
@@ -120,3 +123,7 @@ Tests on i5-8600k @ 4.8ghz, cpu cache @ 4.5ghz, 40 degree C;
             Average time for containsRandom: 17992ns
             Average time for containsInOrder: 5511ns
             3
+            Average time for insertRandoms: 16875ns
+            Average time for insertInOrder: 3056ns
+            Average time for containsRandom: 18087ns
+            Average time for containsInOrder: 5117ns
