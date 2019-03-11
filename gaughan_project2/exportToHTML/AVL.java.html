@@ -1,0 +1,210 @@
+<html>
+<head>
+<title>AVL.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #000080; font-weight: bold;}
+.s1 { color: #000000;}
+.s2 { color: #008000; font-weight: bold;}
+.s3 { color: #0000ff;}
+.s4 { color: #808080; font-style: italic;}
+</style>
+</head>
+<body bgcolor="#ffffff">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+AVL.java</font>
+</center></td></tr></table>
+<pre><span class="s0">public class </span>AVL&lt;T <span class="s0">extends </span>Comparable&lt;? <span class="s0">super </span>T&gt;&gt; {
+
+    <span class="s0">private </span>TreeNode&lt;T&gt; root;
+
+    <span class="s0">public void </span>printTree() {
+        <span class="s0">if </span>(isEmpty()) {
+            System.out.println(<span class="s2">&quot;Empty tree&quot;</span>);
+        }
+
+        printTree(root);
+    }
+
+    <span class="s0">private void </span>printTree(TreeNode&lt;T&gt; tree) {
+        <span class="s0">if </span>(tree != <span class="s0">null</span>) {
+            printTree(tree.left);
+            System.out.println(tree.data);
+            printTree(tree.right);
+        }
+    }
+
+    <span class="s0">public int </span>height() {
+        <span class="s0">return </span>height(root);
+    }
+
+    <span class="s0">public void </span>insert(T item) {
+        root = insert(root, item);
+    }
+
+    <span class="s0">private </span>TreeNode&lt;T&gt; insert(TreeNode&lt;T&gt; subtree, T item) {
+        <span class="s0">if </span>(subtree == <span class="s0">null</span>) {
+            <span class="s0">return new </span>TreeNode&lt;&gt;(item, <span class="s0">null</span>, <span class="s0">null</span>);
+        }
+
+        <span class="s0">int </span>comparison = item.compareTo(subtree.data);
+
+        <span class="s0">if </span>(comparison &lt; <span class="s3">0</span>) {
+            subtree.left = insert(subtree.left, item);
+        } <span class="s0">else if </span>(comparison &gt; <span class="s3">0</span>) {
+            subtree.right = insert(subtree.right, item);
+        }
+
+<span class="s4">//        commented out: if we don't re-balance, we need to update the height.</span>
+//        subtree.height = 1 + Math.max(height(subtree.left), height(subtree.right));
+//        return subtree;
+
+        // re-balance
+        <span class="s0">return </span>balance(subtree);
+    }
+
+    <span class="s0">private </span>TreeNode&lt;T&gt; balance(TreeNode&lt;T&gt; node) {
+        <span class="s0">int </span>balance = height(node.left) - height(node.right);
+        <span class="s0">if </span>(balance &gt; <span class="s3">1</span>) {
+            <span class="s0">if </span>(height(node.left.left) &gt;= height(node.left.right)) {
+                node = rotateRight(node);
+            } <span class="s0">else </span>{
+                node.left = rotateLeft(node.left);
+                node = rotateRight(node);
+            }
+        } <span class="s0">else if </span>(balance &lt; -<span class="s3">1</span>) {
+            <span class="s0">if </span>(height(node.right.right) &gt;= height(node.right.left)) {
+                node = rotateLeft(node);
+            } <span class="s0">else </span>{
+                node.right = rotateRight(node.right);
+                node = rotateLeft(node);
+            }
+        }
+
+        node.height = <span class="s3">1 </span>+ Math.max(height(node.right), height(node.left));
+        <span class="s0">return </span>node;
+    }
+
+    <span class="s0">private int </span>height(TreeNode&lt;T&gt; subtree) {
+        <span class="s0">if </span>(subtree == <span class="s0">null</span>) {
+            <span class="s0">return </span>-<span class="s3">1</span>;
+        }
+
+        <span class="s0">return </span>subtree.height;
+    }
+
+    <span class="s0">public boolean </span>contains(T item) {
+        <span class="s0">return </span>contains(item, root);
+    }
+
+    <span class="s0">private boolean </span>contains(T item, TreeNode&lt;T&gt; subtree) {
+        <span class="s4">// 3 cases:</span>
+        // hidden case 0: subtree is null
+
+        <span class="s0">int </span>comparison = item.compareTo(subtree.data);
+
+        <span class="s0">if </span>(comparison == <span class="s3">0</span>) {
+            <span class="s0">return true</span>;
+        }
+
+        <span class="s0">if </span>(comparison &lt; <span class="s3">0</span>) {
+            <span class="s0">return </span>contains(item, subtree.left);
+        }
+
+        <span class="s0">return </span>contains(item, subtree.right);
+    }
+
+    <span class="s0">public void </span>remove(T item) {
+        root = remove(item, root);
+    }
+
+    <span class="s0">private </span>TreeNode&lt;T&gt; remove(T item, TreeNode&lt;T&gt; subtree) {
+        <span class="s0">if </span>(subtree == <span class="s0">null</span>) {
+            <span class="s0">return null</span>;
+        }
+
+        <span class="s0">int </span>comparison = item.compareTo(subtree.data);
+        <span class="s0">if </span>(comparison &lt; <span class="s3">0</span>) {
+            subtree.left = remove(item, subtree.left);
+        } <span class="s0">else if </span>(comparison &gt; <span class="s3">0</span>) {
+            subtree.right = remove(item, subtree.right);
+        } <span class="s0">else </span>{
+            <span class="s4">// we want to remove the subtree node</span>
+
+            // CASE 1: subtree is a leaf
+
+            <span class="s0">if </span>(subtree.left == <span class="s0">null </span>&amp;&amp; subtree.right == <span class="s0">null</span>) {
+                subtree = <span class="s0">null</span>;
+            } <span class="s0">else if </span>(subtree.left != <span class="s0">null </span>&amp;&amp; subtree.right == <span class="s0">null</span>) {
+
+                <span class="s4">// CASE 2: subtree has one child</span>
+                subtree = subtree.left;
+            } <span class="s0">else if </span>(subtree.left == <span class="s0">null </span>&amp;&amp; subtree.right != <span class="s0">null</span>) {
+                subtree = subtree.right;
+            } <span class="s0">else </span>{
+                <span class="s4">// CASE 3: subtree has two children.</span>
+                // replace subtree by its successor
+                // then delete its successor.
+
+                TreeNode&lt;T&gt; successor = subtree.right;
+                <span class="s0">while </span>(successor.left != <span class="s0">null</span>) {
+                    successor = successor.left;
+                }
+                subtree.data = successor.data;
+                subtree.right = remove(subtree.data, subtree.right);
+            }
+        }
+
+<span class="s4">//        commented out: if we don't re-balance, we need to update the height.</span>
+//        subtree.height = 1 + Math.max(height(subtree.left), height(subtree.right));
+//        return subtree;
+        <span class="s0">return </span>balance(subtree);
+    }
+
+    <span class="s0">private boolean </span>isEmpty() {
+        <span class="s0">return </span>root == <span class="s0">null</span>;
+    }
+
+    <span class="s0">private </span>TreeNode&lt;T&gt; rotateLeft(TreeNode&lt;T&gt; subtree) {
+        TreeNode&lt;T&gt; right = subtree.right;
+        subtree.right = right.left;
+        right.left = subtree;
+
+        <span class="s4">// update heights!</span>
+        <span class="s0">return </span>getTreeNode(subtree, right);
+    }
+
+    <span class="s0">private </span>TreeNode&lt;T&gt; rotateRight(TreeNode&lt;T&gt; subtree) {
+        TreeNode&lt;T&gt; left = subtree.left;
+        subtree.left = left.right;
+        left.right = subtree;
+
+        <span class="s4">// update heights!</span>
+        <span class="s0">return </span>getTreeNode(subtree, left);
+    }
+
+    <span class="s0">private </span>TreeNode&lt;T&gt; getTreeNode(TreeNode&lt;T&gt; subtree, TreeNode&lt;T&gt; left) {
+        subtree.height = <span class="s3">1 </span>+ Math.max(height(subtree.right), height(subtree.left));
+        left.height = <span class="s3">1 </span>+ Math.max(height(left.left), height(left.right));
+        <span class="s0">return </span>left;
+    }
+
+    <span class="s0">private static class </span>TreeNode&lt;T&gt; {
+        T data;
+        TreeNode&lt;T&gt; left;
+        TreeNode&lt;T&gt; right;
+        <span class="s0">int </span>height;
+
+        TreeNode(T d, TreeNode&lt;T&gt; l, TreeNode&lt;T&gt; r) {
+            data = d;
+            left = l;
+            right = r;
+            height = <span class="s3">0</span>;
+        }
+    }
+
+}</pre>
+</body>
+</html>

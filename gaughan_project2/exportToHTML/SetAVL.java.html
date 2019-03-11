@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>SetAVL.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #000080; font-weight: bold;}
+.s1 { color: #000000;}
+</style>
+</head>
+<body bgcolor="#ffffff">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+SetAVL.java</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span>java.util.concurrent.ConcurrentHashMap;
+
+<span class="s0">public class </span>SetAVL&lt;T <span class="s0">extends </span>Comparable&lt;? <span class="s0">super </span>T&gt;&gt; <span class="s0">implements </span>Set&lt;T&gt; {
+    <span class="s0">private </span>BST&lt;T&gt; b = <span class="s0">new </span>BST&lt;&gt;();
+    <span class="s0">private </span>ConcurrentHashMap&lt;T, T&gt; checktable = <span class="s0">new </span>ConcurrentHashMap&lt;&gt;();
+
+    <span class="s0">public boolean </span>contains(T item) {
+        T checknumber = checktable.get(item);
+        <span class="s0">return </span>checknumber != <span class="s0">null</span>;
+    }
+
+    <span class="s0">public void </span>insert(T item) {
+        <span class="s0">if </span>(!contains(item)) b.insert(item);
+    }
+}</pre>
+</body>
+</html>

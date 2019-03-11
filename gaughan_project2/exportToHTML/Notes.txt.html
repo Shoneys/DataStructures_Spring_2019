@@ -1,0 +1,151 @@
+<html>
+<head>
+<title>Notes.txt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #000000;}
+</style>
+</head>
+<body bgcolor="#ffffff">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Notes.txt</font>
+</center></td></tr></table>
+<pre>Positives of AVL:
+    Same in average case
+    Better in worst case
+
+Negatives of AVL:
+    More complicated than BST
+    Requires more memory if it does not balance, slowing operations
+    Insertion/Deletion more complex
+
+Positives of BST:
+    O(n) in worst case (tree is linked list)
+    insert/delete are O(log n)
+    Simpler than AVL
+    easy to search (contains is faster)
+
+Positives of ArrayList:
+    simple
+    sequential access
+    random access O(1)
+    insert or remove O(N)
+    Class included in JDK
+    faster to iterate; gains cache performance
+
+Negatives of ArrayList:
+    bounded, needs to be recopied
+
+
+
+The first test executed is always the slowest (because it is unrolling the loops?)
+
+Tests on i5-8600k @ 4.8ghz, cpu cache @ 4.5ghz, 40 degree C;
+    16gb memory 3200mhz 14-18-18-36, 32gb Optane memory cache (pinned intellij and java jdk), JVM Heap 1500Mb:
+
+    1000 Integers, 1000 contains, 25000 tests each:
+        AL:
+            1
+            Average time for insertRandoms: 38868ns
+            Average time for insertInOrder: 22424ns
+            Average time for containsRandom: 58776ns
+            Average time for containsInOrder: 33876ns
+            2
+            Average time for insertRandoms: 42519ns
+            Average time for insertInOrder: 30754ns
+            Average time for containsRandom: 57982ns
+            Average time for containsInOrder: 39237ns
+            3
+            Average time for insertRandoms: 42554ns
+            Average time for insertInOrder: 28421ns
+            Average time for containsRandom: 54348ns
+            Average time for containsInOrder: 38345ns
+
+        AVL:
+            1
+            Average time for insertRandoms: 146797ns
+            Average time for insertInOrder: 73460ns
+            Average time for containsRandom: 160117ns
+            Average time for containsInOrder: 88698ns
+            2
+            Average time for insertRandoms: 146142ns
+            Average time for insertInOrder: 66879ns
+            Average time for containsRandom: 158290ns
+            Average time for containsInOrder: 82087ns
+            3
+            Average time for insertRandoms: 145931ns
+            Average time for insertInOrder: 68594ns
+            Average time for containsRandom: 157813ns
+            Average time for containsInOrder: 84947ns
+
+        BST:
+            1
+            Average time for insertRandoms: 146338ns
+            Average time for insertInOrder: 67621ns
+            Average time for containsRandom: 159950ns
+            Average time for containsInOrder: 83367ns
+            2
+            Average time for insertRandoms: 144358ns
+            Average time for insertInOrder: 68113ns
+            Average time for containsRandom: 157708ns
+            Average time for containsInOrder: 84633ns
+            3
+            Average time for insertRandoms: 145146ns
+            Average time for insertInOrder: 71297ns
+            Average time for containsRandom: 158895ns
+            Average time for containsInOrder: 86748ns
+
+    100 Integers, 100 contains, 25000 tests each:
+        AL:
+            1
+            Average time for insertRandoms: 4137ns
+            Average time for insertInOrder: 2218ns
+            Average time for containsRandom: 5729ns
+            Average time for containsInOrder: 4005ns
+            2
+            Average time for insertRandoms: 4815ns
+            Average time for insertInOrder: 2197ns
+            Average time for containsRandom: 6581ns
+            Average time for containsInOrder: 3816ns
+            3
+            Average time for insertRandoms: 4541ns
+            Average time for insertInOrder: 2011ns
+            Average time for containsRandom: 6281ns
+            Average time for containsInOrder: 3801ns
+
+        AVL:
+            1
+            Average time for insertRandoms: 16845ns
+            Average time for insertInOrder: 5051ns
+            Average time for containsRandom: 18602ns
+            Average time for containsInOrder: 7008ns
+            2
+            Average time for insertRandoms: 16945ns
+            Average time for insertInOrder: 4707ns
+            Average time for containsRandom: 18153ns
+            Average time for containsInOrder: 6642ns
+            3
+            Average time for insertRandoms: 16405ns
+            Average time for insertInOrder: 3825ns
+            Average time for containsRandom: 17976ns
+            Average time for containsInOrder: 5672ns
+        BST:
+            1
+            Average time for insertRandoms: 17242ns
+            Average time for insertInOrder: 4996ns
+            Average time for containsRandom: 18376ns
+            Average time for containsInOrder: 6983ns
+            2
+            Average time for insertRandoms: 16460ns
+            Average time for insertInOrder: 3530ns
+            Average time for containsRandom: 17992ns
+            Average time for containsInOrder: 5511ns
+            3
+            Average time for insertRandoms: 16875ns
+            Average time for insertInOrder: 3056ns
+            Average time for containsRandom: 18087ns
+            Average time for containsInOrder: 5117ns</pre>
+</body>
+</html>
