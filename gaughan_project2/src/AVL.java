@@ -2,16 +2,14 @@ public class AVL<T extends Comparable<? super T>> {
 
     private TreeNode<T> root;
 
-    public void printTree() {
-        if (isEmpty()) {
+    public void printTree(){
+        if(isEmpty()){
             System.out.println("Empty tree");
         }
-
         printTree(root);
     }
-
-    private void printTree(TreeNode<T> tree) {
-        if (tree != null) {
+    private void printTree(TreeNode<T> tree){
+        if(tree!=null){
             printTree(tree.left);
             System.out.println(tree.data);
             printTree(tree.right);

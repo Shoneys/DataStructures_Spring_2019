@@ -1,6 +1,9 @@
 import java.util.Scanner;
 
 
+//fix using the same object!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
 public class MainBenchmark<T> {
     private static Scanner sc = new Scanner(System.in);
 
@@ -50,37 +53,41 @@ public class MainBenchmark<T> {
             startTime = System.nanoTime();
             benchmarkArrayList.insertRandoms(typeofSet, n);
             endTime = System.nanoTime();
-            System.out.println("Total execution time for insertRandoms[" + i + "]: " + (endTime - startTime) + "ns");
+            // System.out.println("Total execution time for insertRandoms[" + i + "]: " + (endTime - startTime) + "ns");
             avetimeforInsertRand += endTime - startTime;
         }
         avetimeforInsertRand = avetimeforInsertRand / numTests;
+
 
         long avetimeforInsertInOrder = 0;
         for (int i = 0; i < numTests; i++) {
             startTime = System.nanoTime();
             benchmarkArrayList.insertInOrder(typeofSet, n);
             endTime = System.nanoTime();
-            System.out.println("Total execution time for insertInOrder[" + i + "]: " + (endTime - startTime) + "ns");
+            // System.out.println("Total execution time for insertInOrder[" + i + "]: " + (endTime - startTime) + "ns");
             avetimeforInsertInOrder += endTime - startTime;
         }
         avetimeforInsertInOrder = avetimeforInsertInOrder / numTests;
+
+
 
         long avetimeforcontainsRandom = 0;
         for (int i = 0; i < numTests; i++) {
             startTime = System.nanoTime();
             benchmarkArrayList.containsRandom(typeofSet, n, numSearches);
             endTime = System.nanoTime();
-            System.out.println("Total execution time for containsRandom[" + i + "]: " + (endTime - startTime) + "ns");
+            //System.out.println("Total execution time for containsRandom[" + i + "]: " + (endTime - startTime) + "ns");
             avetimeforcontainsRandom += endTime - startTime;
         }
         avetimeforcontainsRandom = avetimeforcontainsRandom / numTests;
+
 
         long avetimeforcontainsInOrder = 0;
         for (int i = 0; i < numTests; i++) {
             startTime = System.nanoTime();
             benchmarkArrayList.containsInOrder(typeofSet, n, numSearches);
             endTime = System.nanoTime();
-            System.out.println("Total execution time for containsInOrder[" + i + "]: " + (endTime - startTime) + "ns");
+            //System.out.println("Total execution time for containsInOrder[" + i + "]: " + (endTime - startTime) + "ns");
             avetimeforcontainsInOrder += endTime - startTime;
         }
         avetimeforcontainsInOrder = avetimeforcontainsInOrder / numTests;

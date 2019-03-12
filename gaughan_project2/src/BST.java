@@ -140,3 +140,21 @@ public class BST<T extends Comparable<? super T>> {
     }
 
 }
+
+
+
+ /*   public void printTree() {
+        if (isEmpty()) {
+            System.out.println("Empty tree");
+        }
+
+        printTree(root);
+    }
+
+    private void printTree(TreeNode<T> tree) {
+        if (tree != null) {
+            printTree(tree.left);
+            System.out.println(tree.data);
+            printTree(tree.right);
+        }
+    }*/

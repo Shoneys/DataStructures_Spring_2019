@@ -6,8 +6,8 @@ class BenchmarkTests {
         }
     }
 
-    void insertInOrder(Set<Integer> set2, int n) {
-        for (int i = 0; i < n - 1; i++) set2.insert(i);
+    void insertInOrder(Set<Integer> set, int n) {
+        for (int i = 0; i < n - 1; i++) set.insert(i);
 
     }
 
