@@ -1,0 +1,32 @@
+Write pseudocode which, given an adjacency matrix for a graph and vertices i and j, checks whether there is a path between i and j.
+
+unweighted single-source shortest path using breadth-first search:
+    unweighted(i,j){
+        vertex start= vertexMap.get(i);
+        if(start==null){
+            throw nosuchelementexception;
+        }
+        queue<vertex> q=new LinkedList<vertex>();
+        q.add(start);
+        start.dist=0;
+
+        while(!q.isEmpty()){
+            vertex v = q.remove();
+            for(Edge e : v.adj){
+                vertex w = e.dest;
+
+                if(w.dist == Infinity){
+                    w.dist = v.dist +1;
+                    w.prev = v;
+                    q.add(w);
+                }
+            }
+        }
+    }
+
+
+
+
+
+
+Dijkstra's algorithm: weights to edge costs?

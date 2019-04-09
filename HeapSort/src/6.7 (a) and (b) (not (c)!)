@@ -1,8 +1,47 @@
-A.) Prove that for binary heaps, buildheap does at most 2N-2 comparisons between element
+2.)
+A.) Prove that for binary heaps, buildheap does at most 2n-2 comparisons between element
     Finding the "at most" of an algorithm is finding the worst case scenario. Upper and lower bounds are always O(n)
         Build heap (AKA heapify) is always O(n), regardless of input distribution, or if it is a binary heap or any other
             O(2N-2) simplifies to O(n)
-    proof by example:
-B.) Show that a heap of eight elements can be constructed in eight comparisons between heap elements
-    1 -3 5 89 42 49 90 8
+    proof:
+        For each additional element to compare, the amount of comparisons goes up by 2.
+        Then number of nodes at height h=log(n)
+                                         sigma(n/2^(h+1))
+                                          (h)
+        Cost of building heap:
+        h=log(n)
+        O(sigma(h/2^h))
+           (h)
 
+        log(n)
+        sigma(h/2^h)=0+(1/2)+(1/4) ... (log(n)/(2^(log(n))))
+         (h)
+
+        log(n)
+        sigma(h/2^h)=S
+         (h)
+
+        S=0+(1/2)+(1/4)...(log(n)/(2^(log(n))))
+        (S/2)=(1/4)+...(1/2)*(log(n)/(1^(log(n))))
+        (S/2)=(1/2)+(1/4)...(1/(2^(log(n))))
+
+        S=a(((R^n)-1)/(r-1))
+            r is difference between 2 consecutive terms
+        S/2=1/2((((1/2)^log(n))-1)/(-1/2))=((-1/2)^log(n))+1
+        S=-2(((1/2)^log(N))-1)
+
+        comparisons=-2*n(((1/2)^log(n))-1)
+        =-2n((1/2^(log(N)))-1)
+        =-2n((1/n)-1)
+        =(-2n/n)+2n
+        2n-2
+
+B.) Show that a heap of eight elements can be constructed in eight comparisons between heap elements
+    9 8 7 6 5 4 3 2
+    2 9 8 7 6 5 4 3
+    2 3 9 8 7 6 5 4
+    2 3 4 9 8 7 6 5
+    2 3 4 5 9 8 7 6
+    2 3 4 5 6 9 8 7
+    2 3 4 5 6 7 9 8
+    2 3 4 5 6 7 8 9
