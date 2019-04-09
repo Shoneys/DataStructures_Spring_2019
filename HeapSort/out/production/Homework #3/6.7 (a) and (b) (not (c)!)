@@ -1,0 +1,8 @@
+A.) Prove that for binary heaps, buildheap does at most 2N-2 comparisons between element
+    Finding the "at most" of an algorithm is finding the worst case scenario. Upper and lower bounds are always O(n)
+        Build heap (AKA heapify) is always O(n), regardless of input distribution, or if it is a binary heap or any other
+            O(2N-2) simplifies to O(n)
+    proof by example:
+B.) Show that a heap of eight elements can be constructed in eight comparisons between heap elements
+    1 -3 5 89 42 49 90 8
+
